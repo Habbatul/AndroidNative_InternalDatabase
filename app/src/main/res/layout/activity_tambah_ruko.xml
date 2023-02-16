@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#9D729F"
+    tools:context=".Tambahruko">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="64dp"
+            android:text="Tambah ruko"
+            android:textColor="@color/black"
+            android:textSize="40dp"
+            android:fontFamily="@@raw/font1"
+            android:layout_gravity="center"
+            />
+
+        <TextView
+            android:id="@+id/Labelnama"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="26dp"
+            android:layout_marginTop="40dp"
+            android:text="Name"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:fontFamily="@@raw/font2"/>
+
+        <EditText
+            android:id="@+id/namaruko"
+            android:layout_width="357dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/back"
+            android:hint="Masukkan nama ruko"
+            android:inputType="text"
+            android:minHeight="48dp"
+            android:padding="10dp" />
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:id="@+id/label_deskripsi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="26dp"
+            android:text="deskripsi"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:fontFamily="@@raw/font2"/>
+
+        <EditText
+            android:id="@+id/deskripsiruko"
+            android:layout_width="356dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/back"
+            android:hint="Masukkan deskripsi"
+            android:inputType="text"
+            android:minHeight="48dp"
+            android:padding="10dp" />
+
+        <TextView
+            android:id="@+id/labelGMAP"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="26dp"
+            android:text="Url Map"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:fontFamily="@@raw/font2"/>
+
+        <EditText
+            android:id="@+id/GMAP"
+            android:layout_width="357dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/back"
+            android:hint="Masukkan link posisi ruko Pada GMap"
+            android:inputType="text"
+            android:minHeight="48dp"
+            android:padding="10dp" />
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:id="@+id/label_alamat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="26dp"
+            android:text="Alamat"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:fontFamily="@@raw/font2"/>
+        <EditText
+            android:id="@+id/alamatruko"
+            android:layout_width="356dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/back"
+            android:hint="Alamat"
+            android:inputType="text"
+            android:minHeight="48dp"
+            android:padding="10dp" />
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:id="@+id/label_kontakruko"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="26dp"
+            android:text="Kontak"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:fontFamily="@@raw/font2"/>
+        <EditText
+            android:id="@+id/kontakruko"
+            android:layout_width="356dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/back"
+            android:hint="Kontak"
+            android:inputType="number"
+            android:minHeight="48dp"
+            android:padding="10dp" />
+
+        <Button
+            android:id="@+id/btn_tambahruko"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:onClick="onBtnRegisterNow_Click"
+            android:text="Tambah Data ruko"
+            android:textColor="#FFFFFF"
+            android:textSize="15dp" />
+    </LinearLayout>
+
+
+</ScrollView>
