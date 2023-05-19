@@ -22,7 +22,7 @@ import com.example.hqhan.model.viewmodel.ViewTabelPengguna;
 import com.example.hqhan.databinding.ActivityMainPemilikBinding;
 import com.example.hqhan.model.entity.ruko;
 import com.example.hqhan.adapter.rukoAdapter;
-import com.example.hqhan.model.database.rukoDB;
+import com.example.hqhan.adapter.database.rukoDB;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,7 +39,7 @@ public class MainPemilik extends AppCompatActivity implements com.example.hqhan.
 
 
     private LiveData<List<ruko>> mrukoss;
-    private com.example.hqhan.model.database.rukoDao rukoDao;
+    private com.example.hqhan.adapter.database.rukoDao rukoDao;
 
     private List<ruko> mrukos = new ArrayList<>();
 

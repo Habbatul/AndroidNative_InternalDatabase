@@ -1,4 +1,4 @@
-package com.example.hqhan.model.database;
+package com.example.hqhan.adapter.database;
 
 import android.content.Context;
 
