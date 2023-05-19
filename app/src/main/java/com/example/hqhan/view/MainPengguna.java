@@ -19,7 +19,6 @@ import com.example.hqhan.adapter.rukoAdapterDua;
 import com.example.hqhan.databinding.ActivityMainPenggunaBinding;
 import com.example.hqhan.model.entity.ruko;
 import com.example.hqhan.viewmodel.ViewTabelPengguna;
-import com.example.hqhan.viewmodel.ViewTabelPenggunaSearch;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +27,6 @@ public class MainPengguna extends AppCompatActivity implements com.example.hqhan
     private ActivityMainPenggunaBinding binding;
     private rukoAdapterDua rukoAdapterDua;
     private ViewTabelPengguna rukoViewModel;
-    private ViewTabelPenggunaSearch rukosearchViewModel;
     private EditText carin;
     private Button btncari;
 
@@ -69,6 +67,7 @@ public class MainPengguna extends AppCompatActivity implements com.example.hqhan
 
     private void observeData() {
         rukoViewModel = ViewModelProviders.of(this).get(ViewTabelPengguna.class);
+        rukoViewModel.setKeyword(null);
         rukoViewModel.getrukos().observe(this,
                 new Observer<List<ruko>>() {
                     @Override
@@ -91,9 +90,9 @@ public class MainPengguna extends AppCompatActivity implements com.example.hqhan
 //    }
 
     private void observeDataCari(String keyword) {
-        rukosearchViewModel = (ViewTabelPenggunaSearch) ViewModelProviders.of(this).get(ViewTabelPenggunaSearch.class);
-        rukosearchViewModel.setKeyword(keyword);
-        rukosearchViewModel.getrukos().observe(this,
+        rukoViewModel = (ViewTabelPengguna) ViewModelProviders.of(this).get(ViewTabelPengguna.class);
+        rukoViewModel.setKeyword(keyword);
+        rukoViewModel.getrukos().observe(this,
                 new Observer<List<ruko>>() {
                     @Override
                     public void onChanged(List<ruko> rukos) {
