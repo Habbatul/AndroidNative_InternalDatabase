@@ -15,11 +15,11 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.hqhan.R;
-import com.example.hqhan.model.viewmodel.ViewTabelPengguna;
+import com.example.hqhan.view.viewmodel.ViewTabelPengguna;
 import com.example.hqhan.databinding.ActivityMainPenggunaBinding;
 import com.example.hqhan.model.entity.ruko;
 import com.example.hqhan.adapter.rukoAdapterDua;
-import com.example.hqhan.adapter.database.rukoDB;
+import com.example.hqhan.model.database.rukoDB;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +33,7 @@ public class MainPengguna extends AppCompatActivity implements com.example.hqhan
 
 
     private LiveData<List<ruko>> mrukoss;
-    private com.example.hqhan.adapter.database.rukoDao rukoDao;
+    private com.example.hqhan.model.database.dao.rukoDao rukoDao;
 
     private List<ruko> mrukos = new ArrayList<>();
 

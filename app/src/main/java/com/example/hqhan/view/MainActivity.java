@@ -16,8 +16,8 @@ import com.example.hqhan.model.entity.Pengguna;
 import com.example.hqhan.model.sharedpref.PreferenceTipe;
 import com.example.hqhan.R;
 import com.example.hqhan.model.sharedpref.preferenceNama;
-import com.example.hqhan.adapter.database.rukoDB;
-import com.example.hqhan.adapter.database.rukoDao;
+import com.example.hqhan.model.database.rukoDB;
+import com.example.hqhan.model.database.dao.rukoDao;
 
 
 public class MainActivity extends AppCompatActivity {

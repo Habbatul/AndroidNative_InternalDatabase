@@ -1,8 +1,9 @@
-package com.example.hqhan.adapter.database;
+package com.example.hqhan.model.database;
 
 import androidx.room.Database;
 import androidx.room.RoomDatabase;
 
+import com.example.hqhan.model.database.dao.rukoDao;
 import com.example.hqhan.model.entity.Pengguna;
 import com.example.hqhan.model.entity.ruko;
 

@@ -1,4 +1,4 @@
-package com.example.hqhan.adapter.database;
+package com.example.hqhan.model.database.dao;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
