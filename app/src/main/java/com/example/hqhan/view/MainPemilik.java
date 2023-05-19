@@ -1,4 +1,4 @@
-package com.example.hqhan;
+package com.example.hqhan.view;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -17,12 +17,17 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.example.hqhan.R;
+import com.example.hqhan.model.viewmodel.ViewTabelPengguna;
 import com.example.hqhan.databinding.ActivityMainPemilikBinding;
+import com.example.hqhan.model.entity.ruko;
+import com.example.hqhan.adapter.rukoAdapter;
+import com.example.hqhan.model.database.rukoDB;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainPemilik extends AppCompatActivity implements rukoAdapter.rukoAdapterCallback {
+public class MainPemilik extends AppCompatActivity implements com.example.hqhan.adapter.rukoAdapter.rukoAdapterCallback {
     private Button Tmbhruko;
     private ActivityMainPemilikBinding binding;
     private rukoAdapter rukoAdapter;
@@ -34,7 +39,7 @@ public class MainPemilik extends AppCompatActivity implements rukoAdapter.rukoAd
 
 
     private LiveData<List<ruko>> mrukoss;
-    private rukoDao rukoDao;
+    private com.example.hqhan.model.database.rukoDao rukoDao;
 
     private List<ruko> mrukos = new ArrayList<>();
 
@@ -68,7 +73,7 @@ public class MainPemilik extends AppCompatActivity implements rukoAdapter.rukoAd
         binding.btnTambah.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent ini = new Intent(MainPemilik.this,Tambahruko.class);
+                Intent ini = new Intent(MainPemilik.this, Tambahruko.class);
                 startActivity(ini);
             }
         });

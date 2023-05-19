@@ -1,4 +1,4 @@
-package com.example.hqhan;
+package com.example.hqhan.view;
 
 
 
@@ -11,6 +11,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.hqhan.model.entity.Pengguna;
+import com.example.hqhan.model.sharedpref.PreferenceTipe;
+import com.example.hqhan.R;
+import com.example.hqhan.model.sharedpref.preferenceNama;
+import com.example.hqhan.model.database.rukoDB;
+import com.example.hqhan.model.database.rukoDao;
 
 
 public class MainActivity extends AppCompatActivity {

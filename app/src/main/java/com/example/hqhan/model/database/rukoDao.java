@@ -1,10 +1,13 @@
-package com.example.hqhan;
+package com.example.hqhan.model.database;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
+
+import com.example.hqhan.model.entity.Pengguna;
+import com.example.hqhan.model.entity.ruko;
 
 import java.util.List;
 

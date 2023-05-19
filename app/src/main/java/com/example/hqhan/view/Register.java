@@ -1,4 +1,4 @@
-package com.example.hqhan;
+package com.example.hqhan.view;
 
 import android.os.Bundle;
 import android.view.View;
@@ -7,6 +7,11 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.hqhan.model.entity.Pengguna;
+import com.example.hqhan.R;
+import com.example.hqhan.model.database.rukoDB;
+import com.example.hqhan.model.database.rukoDao;
 
 public class Register extends AppCompatActivity {
     private EditText edtNama;

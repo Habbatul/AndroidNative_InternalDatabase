@@ -1,4 +1,4 @@
-package com.example.hqhan;
+package com.example.hqhan.view;
 
 import android.os.Bundle;
 import android.view.View;
@@ -8,33 +8,55 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class Tambahruko extends AppCompatActivity {
+import com.example.hqhan.R;
+import com.example.hqhan.model.entity.Pengguna;
+import com.example.hqhan.model.database.rukoDB;
+import com.example.hqhan.model.database.rukoDao;
+import com.example.hqhan.model.entity.ruko;
+
+public class ubahdataruko extends AppCompatActivity {
     private EditText edtDeskripsi;
     private EditText edtNama;
     private EditText edtAlamat;
     private EditText edtKontak;
     private EditText edtGmap;
-    private Button btn_tambah;
+    private Button btnUbah;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tambah_ruko);
-        this.btn_tambah = this.findViewById(R.id.btn_tambahruko);
+        setContentView(R.layout.activity_ubahdata_ruko);
+        this.btnUbah = this.findViewById(R.id.btn_ubahruko);
         this.edtNama = this.findViewById(R.id.namaruko);
         this.edtGmap = this.findViewById(R.id.GMAP);
         this.edtAlamat = this.findViewById(R.id.alamatruko);
         this.edtKontak = this.findViewById(R.id.kontakruko);
         this.edtDeskripsi = this.findViewById(R.id.deskripsiruko);
+        rukoDao ruko;
+        ruko = rukoDB.getInstance(getBaseContext()).rukoDao();
+        Bundle extras = getIntent().getExtras();
+        int uid = extras.getInt("ubah");
 
-        this.btn_tambah.setOnClickListener(new View.OnClickListener() {
+
+        ruko daftarruko = ruko.ambilSingleData(uid);
+        edtNama.setText(daftarruko.namaruko);
+        edtGmap.setText(daftarruko.gmap);
+        edtAlamat.setText(daftarruko.alamatruko);
+        edtKontak.setText(daftarruko.kontakruko);
+        edtDeskripsi.setText(daftarruko.deskripsiruko);
+
+        this.btnUbah.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 boolean valid = validasi();
                 if (valid) {
                     rukoDao ruko = rukoDB.getInstance(getApplicationContext()).rukoDao();
-                    ruko.insertAll1(buatruko());
-                    Toast.makeText(Tambahruko.this, "Tambah data ruko berhasil", Toast.LENGTH_SHORT).show();
+                    ruko.ubahSingleData(edtDeskripsi.getText().toString(),
+                            edtNama.getText().toString(),edtAlamat.getText().toString(),
+                            edtKontak.getText().toString(),edtGmap.getText().toString(),uid);
+
+
+                    Toast.makeText(ubahdataruko.this, "Ubah data ruko berhasil", Toast.LENGTH_SHORT).show();
 
                     finish();
                 }

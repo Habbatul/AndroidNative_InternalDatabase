@@ -1,4 +1,4 @@
-package com.example.hqhan;
+package com.example.hqhan.view;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -14,12 +14,17 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.example.hqhan.R;
+import com.example.hqhan.model.viewmodel.ViewTabelPengguna;
 import com.example.hqhan.databinding.ActivityMainPenggunaBinding;
+import com.example.hqhan.model.entity.ruko;
+import com.example.hqhan.adapter.rukoAdapterDua;
+import com.example.hqhan.model.database.rukoDB;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainPengguna extends AppCompatActivity implements rukoAdapterDua.rukoAdapterDuaCallback {
+public class MainPengguna extends AppCompatActivity implements com.example.hqhan.adapter.rukoAdapterDua.rukoAdapterDuaCallback {
     private ActivityMainPenggunaBinding binding;
     private rukoAdapterDua rukoAdapterDua;
     private ViewTabelPengguna rukoViewModel;
@@ -28,7 +33,7 @@ public class MainPengguna extends AppCompatActivity implements rukoAdapterDua.ru
 
 
     private LiveData<List<ruko>> mrukoss;
-    private rukoDao rukoDao;
+    private com.example.hqhan.model.database.rukoDao rukoDao;
 
     private List<ruko> mrukos = new ArrayList<>();
 

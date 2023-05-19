@@ -1,4 +1,4 @@
-package com.example.hqhan;
+package com.example.hqhan.view;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,6 +10,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.hqhan.model.entity.Pengguna;
+import com.example.hqhan.model.sharedpref.PreferenceTipe;
+import com.example.hqhan.R;
+import com.example.hqhan.model.sharedpref.preferenceNama;
 
 
 public class Home extends AppCompatActivity{
@@ -36,7 +41,7 @@ public class Home extends AppCompatActivity{
                 SharedPreferences.Editor editor = sharedPrefs.edit();
                 editor.remove(AUTO_LOGIN_KEY);
                 editor.apply();
-                Intent ini = new Intent(Home.this,MainActivity.class);
+                Intent ini = new Intent(Home.this, MainActivity.class);
                 startActivity(ini);
                 finish();
             }
@@ -47,11 +52,11 @@ public class Home extends AppCompatActivity{
             @Override
             public void onClick(View view) {
                 if(CekTipe.equals("pemilik")){
-                    Intent ini = new Intent(Home.this,MainPemilik.class);
+                    Intent ini = new Intent(Home.this, MainPemilik.class);
                     startActivity(ini);
                 }
                 else if(CekTipe.equals("pengguna")){
-                    Intent ini = new Intent(Home.this,MainPengguna.class);
+                    Intent ini = new Intent(Home.this, MainPengguna.class);
                     startActivity(ini);
                 }
                 else{

@@ -1,4 +1,4 @@
-package com.example.hqhan;
+package com.example.hqhan.model.entity;
 
 import android.os.Parcel;
 import android.os.Parcelable;

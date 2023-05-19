@@ -1,4 +1,4 @@
-package com.example.hqhan;
+package com.example.hqhan.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.hqhan.databinding.ItemRukoBinding;
+import com.example.hqhan.model.entity.ruko;
 
 import java.util.List;
 

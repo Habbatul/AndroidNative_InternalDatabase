@@ -1,4 +1,4 @@
-package com.example.hqhan;
+package com.example.hqhan.model.entity;
 
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
