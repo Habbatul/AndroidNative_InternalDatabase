@@ -1,4 +1,4 @@
-package com.example.hqhan.view.viewmodel;
+package com.example.hqhan.viewmodel;
 
 import android.app.Application;
 import android.content.Context;
@@ -13,24 +13,27 @@ import com.example.hqhan.model.entity.ruko;
 import java.util.List;
 
 
-public class ViewTabelPengguna extends AndroidViewModel {
+public class ViewTabelPenggunaSearch extends AndroidViewModel {
     Context context;
-    private LiveData<List<ruko>> mrukos;
+    private LiveData<List<ruko>> arukos;
     private com.example.hqhan.model.database.dao.rukoDao rukoDao;
 
-    public ViewTabelPengguna(@NonNull Application application) {
+    public ViewTabelPenggunaSearch(@NonNull Application application) {
         super(application);
 
         rukoDao = rukoDB.getInstance(application).rukoDao();
-        mrukos = (LiveData<List<ruko>>) rukoDao.getAll();
     }
+
+    public void setKeyword(String keyword) {
+        arukos = (LiveData<List<ruko>>) rukoDao.getAllsearch(keyword);
+    }
+
     public LiveData<List<ruko>> getrukos() {
-        return mrukos;
+        return arukos;
     }
 
-    public void deleteSingleData(int uid) {
-        rukoDao.deleteSingleData(uid);
-    }
-
+//    public void deleteSingleData(int uid) {
+//        rukoDao.deleteSingleData(uid);
+//    }
 
 }

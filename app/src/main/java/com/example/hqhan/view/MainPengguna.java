@@ -15,11 +15,11 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.hqhan.R;
-import com.example.hqhan.view.viewmodel.ViewTabelPengguna;
+import com.example.hqhan.adapter.rukoAdapterDua;
 import com.example.hqhan.databinding.ActivityMainPenggunaBinding;
 import com.example.hqhan.model.entity.ruko;
-import com.example.hqhan.adapter.rukoAdapterDua;
-import com.example.hqhan.model.database.rukoDB;
+import com.example.hqhan.viewmodel.ViewTabelPengguna;
+import com.example.hqhan.viewmodel.ViewTabelPenggunaSearch;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +28,7 @@ public class MainPengguna extends AppCompatActivity implements com.example.hqhan
     private ActivityMainPenggunaBinding binding;
     private rukoAdapterDua rukoAdapterDua;
     private ViewTabelPengguna rukoViewModel;
+    private ViewTabelPenggunaSearch rukosearchViewModel;
     private EditText carin;
     private Button btncari;
 
@@ -52,7 +53,7 @@ public class MainPengguna extends AppCompatActivity implements com.example.hqhan
                 if((carin.getText().toString()).isEmpty()){
                     observeData();
                 }if(!(carin.getText().toString()).isEmpty()){
-                    observeDataCari();
+                    observeDataCari(carin.getText().toString());
                 }
             }
         });
@@ -77,10 +78,22 @@ public class MainPengguna extends AppCompatActivity implements com.example.hqhan
                 });
     }
 
-    private void observeDataCari() {
-        rukoDao = rukoDB.getInstance(getApplicationContext()).rukoDao();
-        mrukoss = (LiveData<List<ruko>>) rukoDao.getAllsearch(carin.getText().toString());;
-        mrukoss.observe(this,
+//    private void observeDataCari() {
+//        rukoDao = rukoDB.getInstance(getApplicationContext()).rukoDao();
+//        mrukoss = (LiveData<List<ruko>>) rukoDao.getAllsearch(carin.getText().toString());;
+//        mrukoss.observe(this,
+//                new Observer<List<ruko>>() {
+//                    @Override
+//                    public void onChanged(List<ruko> rukos) {
+//                        rukoAdapterDua.addData(rukos);
+//                    }
+//                });
+//    }
+
+    private void observeDataCari(String keyword) {
+        rukosearchViewModel = (ViewTabelPenggunaSearch) ViewModelProviders.of(this).get(ViewTabelPenggunaSearch.class);
+        rukosearchViewModel.setKeyword(keyword);
+        rukosearchViewModel.getrukos().observe(this,
                 new Observer<List<ruko>>() {
                     @Override
                     public void onChanged(List<ruko> rukos) {

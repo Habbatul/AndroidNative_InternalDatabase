@@ -18,11 +18,10 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.hqhan.R;
-import com.example.hqhan.view.viewmodel.ViewTabelPengguna;
+import com.example.hqhan.adapter.rukoAdapter;
 import com.example.hqhan.databinding.ActivityMainPemilikBinding;
 import com.example.hqhan.model.entity.ruko;
-import com.example.hqhan.adapter.rukoAdapter;
-import com.example.hqhan.model.database.rukoDB;
+import com.example.hqhan.viewmodel.ViewTabelPengguna;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,9 +47,8 @@ public class MainPemilik extends AppCompatActivity implements com.example.hqhan.
         super.onCreate(savedInstanceState);
         binding = ActivityMainPemilikBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
-        initAdapter();
         observeData();
+        initAdapter();
         this.carin = this.findViewById(R.id.cariN);;
         this.btncari = this.findViewById(R.id.cariN_button);
         btncari.setOnClickListener(new View.OnClickListener() {
@@ -58,12 +56,13 @@ public class MainPemilik extends AppCompatActivity implements com.example.hqhan.
             public void onClick(View view) {
                 if((carin.getText().toString()).isEmpty()){
                     observeData();
-                }if(!(carin.getText().toString()).isEmpty()){
-                    observeDataCari();
+                }else if(!(carin.getText().toString()).isEmpty()){
+                    observeDataCari(carin.getText().toString());
                 }
             }
         });
     }
+
 
     private void initAdapter() {
         rukoAdapter = new rukoAdapter(this, mrukos, this);
@@ -75,12 +74,15 @@ public class MainPemilik extends AppCompatActivity implements com.example.hqhan.
             public void onClick(View view) {
                 Intent ini = new Intent(MainPemilik.this, Tambahruko.class);
                 startActivity(ini);
+                observeData();
             }
         });
     }
 
+    //observe data bila tidak ada isi pada texetbox
     private void observeData() {
         rukoViewModel = ViewModelProviders.of(this).get(ViewTabelPengguna.class);
+        rukoViewModel.setKeyword(null);
         rukoViewModel.getrukos().observe(this,
                 new Observer<List<ruko>>() {
                     @Override
@@ -90,10 +92,24 @@ public class MainPemilik extends AppCompatActivity implements com.example.hqhan.
                 });
     }
 
-    private void observeDataCari() {
-        rukoDao = rukoDB.getInstance(getApplicationContext()).rukoDao();
-        mrukoss = (LiveData<List<ruko>>) rukoDao.getAllsearch(carin.getText().toString());;
-        mrukoss.observe(this,
+
+    //observe data bila ada textbox
+//    private void observeDataCari() {
+//        rukoDao = rukoDB.getInstance(getApplicationContext()).rukoDao();
+//        mrukoss = (LiveData<List<ruko>>) rukoDao.getAllsearch(carin.getText().toString());
+//        mrukoss.observe(this,
+//                new Observer<List<ruko>>() {
+//                    @Override
+//                    public void onChanged(List<ruko> rukos) {
+//                        rukoAdapter.addData(rukos);
+//                    }
+//                });
+//    }
+
+    private void observeDataCari(String keyword) {
+        rukoViewModel = (ViewTabelPengguna) ViewModelProviders.of(this).get(ViewTabelPengguna.class);
+        rukoViewModel.setKeyword(keyword);
+        rukoViewModel.getrukos().observe(this,
                 new Observer<List<ruko>>() {
                     @Override
                     public void onChanged(List<ruko> rukos) {
@@ -101,6 +117,7 @@ public class MainPemilik extends AppCompatActivity implements com.example.hqhan.
                     }
                 });
     }
+
 
     @Override
     public void onDelete(ruko ruko) {
